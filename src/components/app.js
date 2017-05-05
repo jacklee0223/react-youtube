@@ -9,13 +9,17 @@ export default class App extends Component {
 		super( props );
 
 		this.state = {
-			videos: []
+			videos: [],
+			selectedVideo: null
 		};
 
 		YTSearch( {
 			key: this.props.apiKey,
 			term: 'surfboard'
-		}, videos => { this.setState( { videos } ) } )
+		}, videos => { this.setState( {
+			videos,
+			selectedVideo: videos[0]
+		} ) } )
 	}
 
 	render() {
@@ -25,8 +29,11 @@ export default class App extends Component {
 				  	React simple starter
 				</h3>
 				<SearchBar />
-				<VideoDetail video={ this.state.videos[0] } />
-				<VideoList videos={ this.state.videos } />
+				<VideoDetail video={ this.state.selectedVideo } />
+				<VideoList
+					videos={ this.state.videos }
+					onVideoSelect={ selectedVideo => this.setState( { selectedVideo } ) }
+				/>
 			</div>
 		);
 	}
