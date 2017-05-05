@@ -14,7 +14,7 @@ export default class VideoDetail extends Component {
 		const _videoId = video.id.videoId;
 		const url = `https://www.youtube.com/embed/${ _videoId }`;
 		return (
-			<div>
+			<div className="video-detail">
 				<div className="embed-responsive embed-responsive-16by9">
 					<iframe className="embed-responsive-item" src={ url } />
 				</div>
