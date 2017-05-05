@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
@@ -12,7 +13,7 @@ const API_KEY = 'AIzaSyBWDm6PrY1szVMjkcxv2ruYC_flXh3inPA';
 ReactDOM.render(
   <div className="container">
 	  <Provider store={createStoreWithMiddleware(reducers)}>
-	    <App />
+	    <App apiKey={ API_KEY } />
 	  </Provider>
   </div>
   , document.querySelector('.container'));
